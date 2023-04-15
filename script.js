@@ -86,7 +86,8 @@ function changeZImg(event) {
         if (event.target.src == img.src) {
             img.parentNode.classList.add("active-img")
             zBig_img.src = event.target.src.replace("-thumbnail", "");
-            zImgChange = parseInt(zBig_img.src.match(/\d+/g)[5]);
+            zImgChange = zBig_img.src.match(/\d+/g);     // this line find all integer numbers and then create array of those numbers
+            zImgChange = parseInt(zImgChange[zImgChange.length-1]);  // selecting last value of array and converting into integer
         }
     })
 }
